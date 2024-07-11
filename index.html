@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        @keyframes tilt {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .menu-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+        }
+
+        .line {
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: black;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-btn.active .line:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-btn.active .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active .line:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .side-menu {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .side-menu.active {
+            transform: translateX(0);
+        }
+
+        .menu-btn .line-close {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .menu-btn.active .line-close {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            #mobile-menu {
+                display: none !important;
+            }
+        }
+    </style>
+  <link rel="stylesheet" href="./assets/index-C-X6-OW2.css">
+</head>
+
+<body class="bg-green-100">
+
+    <!-- Navbar Starts from here--- -->
+    <nav class="header fixed z-10 h-14 w-full bg-white flex justify-between items-center text-black ">
+        <div class="mx-3 text-2xl ">
+            Portfolio
+        </div>
+        <div class="hidden md:block pr-3 ">
+            <ul class="flex gap-4 font-medium text-xl">
+                <li class="p-2 rounded-2xl hover:bg-yellow-600  active:bg-violet-700"><a href="#home"
+                        onclick="closeMenu()">Home</a></li>
+                <li class="p-2 rounded-2xl hover:bg-yellow-600  active:bg-violet-700"><a href="#about"
+                        onclick="closeMenu()">About</a>
+                </li>
+                <li class="p-2 rounded-2xl hover:bg-yellow-600  active:bg-violet-700"><a href="#skill"
+                        onclick="closeMenu()">Skills</a></li>
+                <li class="p-2 rounded-2xl hover:bg-yellow-600  active:bg-violet-700 "><a href="#project"
+                        onclick="closeMenu()">Projects</a>
+                </li>
+                <li class="p-2 rounded-2xl hover:bg-yellow-600  active:bg-violet-700 "><a href="#contact"
+                        onclick="closeMenu()">Contact me</a>
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="block md:hidden pr-2 font-medium border m-3 p-1.5 rounded-lg bg-white text-black">
+            <a href="#">&#9776;</a>
+        </div> -->
+
+        <div class="block md:hidden pr-2 font-medium border m-3 p-1.5 rounded-lg bg-white text-black">
+            <button id="menu-toggle" class="menu-btn" onclick="toggleMenu()">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line line-close"></span>
+            </button>
+        </div>
+
+    </nav>
+    <div id="side-menu"
+        class="side-menu bg-white fixed top-0 left-0 h-full w-64 overflow-y-auto z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <ul class="text-lg font-medium mt-10">
+            <li class="py-2 px-4 hover:bg-gray-900 hover:text-white"><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li class="py-2 px-4 hover:bg-gray-900 hover:text-white"><a href="#about" onclick="closeMenu()">About</a></li>
+            <li class="py-2 px-4 hover:bg-gray-900 hover:text-white"><a href="#skill" onclick="closeMenu()">Skills</a></li>
+            <li class="py-2 px-4 hover:bg-gray-900 hover:text-white"><a href="#project" onclick="closeMenu()">Projects</a></li>
+            <li class="py-2 px-4 hover:bg-gray-900 hover:text-white"><a href="#contact" onclick="closeMenu()">Contact me</a></li>
+        </ul>
+    </div>
+
+
+
+    <!-- NAvbar Ends HEre  -->
+    <div id="home" class="w-full h-auto py-16 flex justify-around items-center flex-wrap md:flex-auto">
+        <div class="text-3xl w-96 m-9 font-bold ">
+            <h1>Hi There,</h1><br>
+            <h1>I'm Nitish Sharma</h1>
+            <p>I am
+                <br>
+                <span id="element" class="text-pink-700"> </span>
+            </p>
+
+
+            <BUtton class="p-2 bg-slate-950 text-white rounded-xl mt-3 text-xl hover:bg-gray-800 hover:text-white"><a
+                    href=""> Download Resume</a> </BUtton>
+
+            <div class="social-media gap-3 my-5 flex ">
+                <a class="hover:text-blue-800" href="https://www.facebook.com/nitishkumarsharma.nitish.16/"><i
+                        class='bx bxl-facebook'></i></a>
+                <a class="hover:text-blue-700" href=""><i class='bx bxl-twitter'></i></a>
+                <a class="hover:text-pink-700" href="https://www.instagram.com/singhnitish_012/"><i
+                        class='bx bxl-instagram-alt'></i></a>
+                <a class="hover:text-blue-800" href="https://www.linkedin.com/in/nitishsharma321/"><i
+                        class='bx bxl-linkedin'></i></a>
+                <a class="hover:text-black " href="https://github.com/Nitish-Singhh"><i class='bx bxl-github'></i></a>
+            </div>
+        </div>
+
+        <div class="m-5">
+            <img class="md:h-96 h-56 rounded-full overflow-hidden bg-cover shadow-2xl"
+                src="./assets/web-development-8734249_1280-DWsqmPJb.png" alt="">
+        </div>
+    </div>
+
+
+    <!-- About -->
+
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <Div id="about" class="about my-56 h-auto w-3/4 md:w-2/3  mx-auto items-center justify-center ">
+        <h1 class="font-semibold text-4xl text-cyan-800 text-center">About me</h1>
+        <p class="my-9 text-2xl font-medium">Hello! I'm Nitish Sharma, a passionate Frontend Developer currently
+            pursuing a Master of Computer Applications (MCA). I specialize in crafting beautiful, responsive, and
+            user-friendly websites using HTML, CSS, JavaScript, Bootstrap, and Tailwind CSS. My development journey is
+            complemented by my experience with GitHub, which helps me manage and collaborate on projects efficiently.
+
+            I pride myself on being a problem solver who thrives on finding creative solutions and learning new
+            technologies. My eagerness to stay on top of the latest trends ensures that I bring fresh and innovative
+            ideas to every project I undertake.</p>
+    </Div>
+
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <!-- skiils -->
+    <section class=" max-w-7xl h-auto mx-auto py-32 px-6">
+        <h2 id="skill" class="text-4xl font-bold text-center mb-12">Skills</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">HTML</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-green-400 hover:to-blue-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">CSS</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-red-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">JavaScript</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-teal-400 hover:to-indigo-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">Tailwind CSS</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">Bootstrap</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-red-400 hover:to-orange-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">Java</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">Spring</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-gray-400 hover:to-blue-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">Git</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-900">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">GitHub</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-indigo-400 hover:to-purple-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">C</span>
+                </div>
+            </div>
+            <!-- Skill Item -->
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-red-500 hover:to-blue-500">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">C++</span>
+                </div>
+            </div>
+
+            <div
+                class="group flex items-center justify-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-500 transform hover:-translate-y-2 hover:scale-105 hover:bg-gradient-to-r hover:from-teal-400 hover:to-indigo-400">
+                <div class="text-center">
+                    <span class="text-2xl font-semibold group-hover:text-white">My SQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- Projects showing -->
+    <h1 id="project" class="my-14 font-bold text-4xl text-center ">Projects</h1>
+    <div class="flex justify-evenly my-32 flex-wrap gap-8">
+        <div class="card shadow-lg" style="width: 18rem;">
+            <img src="./assets/play-5310799_640-CUTUd61E.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title font-extrabold">Tic Tac Toe</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="https://github.com/Nitish-Singhh/TicTacToa" class="btn btn-primary mt-3">Github Link</a>
+            </div>
+        </div>
+
+        <div class="card shadow-lg" style="width: 18rem;">
+            <img src="./assets/calculator-385506_1280-B9LqbiTT.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title font-extrabold">Calculator</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="https://github.com/Nitish-Singhh/Calculator" class="btn btn-primary mt-4 ">Github Link</a>
+            </div>
+        </div>
+
+        <div class="card shadow-lg" style="width: 18rem;">
+            <img src="./assets/suitcase-3247292_640-STgFtxcp.png" class="card-img-top " alt="...">
+            <div class="card-body">
+                <h5 class="card-title font-extrabold">Portfolio</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="https://github.com/Nitish-Singhh/Portfolio" class="btn btn-primary mt-4">Github Link</a>
+            </div>
+        </div>
+    </div>
+    <!-- project Ending -->
+
+    <!-- feedback Section -->
+    <hr>
+
+    <div id="contact" class="w-7/12 mx-auto my-32">
+        <h1 class="my-14 font-bold text-4xl text-center ">Contact Me !</h1>
+        <div class="row g-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"></label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Comments</label>
+        </div>
+        <button type="button" class="btn btn-success my-2">Send me</button>
+    </div>
+
+    <footer class="footer flex justify-between h-16  text-white items-center p-6 bg-slate-600">
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 by Nitish | All Right Reserved</p>
+        </div>
+        <div class="bg-white text-black p-2 font-bold rounded-lg text-2xl">
+            <a href="#home"> <i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Frontend Developer', 'Designer', ''],
+            typeSpeed: 50,
+            loop: true,
+            typeSpeed: 80,
+            loopCount: Infinity,
+        });
+
+        // Function to toggle side menu
+        function toggleMenu() {
+            var sideMenu = document.getElementById('side-menu');
+            var menuToggle = document.getElementById('menu-toggle');
+            sideMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        // Function to close side menu
+        function closeMenu() {
+            var sideMenu = document.getElementById('side-menu');
+            sideMenu.classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>
